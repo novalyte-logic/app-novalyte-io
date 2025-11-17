@@ -1,0 +1,21 @@
+name: Write to BigQuery
+
+on:
+  workflow_dispatch:
+
+jobs:
+  write-bigquery:
+    runs-on: ubuntu-latest
+    steps:
+    - id: auth
+      name: Authenticate to Google Cloud
+      uses: google-github-actions/auth@v0
+      with:
+        credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+    - name: Write to BigQuery
+      uses: Staffbase/bigquery-github-action@v2
+      with:
+        bigquery_project: ${{ secrets.BQ_PROJECT_ID }}
+        bigquery_dataset: ${{ secrets.BQ_DATASET_ID }}
+        bigquery_table: ${{ secrets.BQ_TABLE_ID }}
+        payload_json: ${{ secrets.BQ_PAYLOAD_JSON }}
