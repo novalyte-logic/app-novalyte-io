@@ -1,0 +1,24 @@
+name: Run Vertex AI Notebook
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-notebook:
+    runs-on: ubuntu-latest
+    steps:
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          token_format: 'access_token'
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+      - name: 'Run Vertex AI Notebook'
+        uses: 'google-github-actions/run-vertexai-notebook@v0'
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          location: us-central1
+          notebook: path/to/notebook.ipynb
+          output_bucket: ${{ secrets.VERTEX_OUTPUT_BUCKET }}
+          machine_type: n1-standard-4
