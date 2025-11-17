@@ -1,7 +1,7 @@
 # ================================
 # 1. Builder stage
 # ================================
-FROM node:22-alpine AS builder
+FROM node:20-alpine AS builder
 WORKDIR /app
 
 # Install dependencies
@@ -15,7 +15,7 @@ RUN npm run build
 # ================================
 # 2. Runner stage (production)
 # ================================
-FROM node:22-alpine AS runner
+FROM node:20-alpine AS runner
 WORKDIR /app
 
 # Create a non-root user for security
