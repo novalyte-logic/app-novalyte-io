@@ -1,23 +1,60 @@
 export default function Home() {
   return (
-    <div style={{
-      height: "100vh",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      background: "black",
-      color: "white",
-      fontFamily: "sans-serif",
-      textAlign: "center",
-      padding: "20px"
-    }}>
-      <h1 style={{ fontSize: "36px", marginBottom: "12px" }}>
+    <main
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#000",
+        color: "#fff",
+        fontFamily: "Inter, sans-serif",
+        display: "flex",
+        flexDirection: "column",
+        padding: "60px 20px",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+      }}
+    >
+      <h1
+        style={{
+          fontSize: "48px",
+          fontWeight: 700,
+          marginBottom: "20px",
+        }}
+      >
         Novalyte™ AI
       </h1>
-      <p style={{ fontSize: "20px", opacity: 0.85 }}>
-        Your intelligent health infrastructure is loading…
+
+      <p
+        style={{
+          fontSize: "22px",
+          opacity: 0.9,
+          maxWidth: "700px",
+          lineHeight: "1.5",
+          marginBottom: "40px",
+        }}
+      >
+        The intelligent health infrastructure powering modern men’s clinics —
+        patient acquisition, real-time performance analytics, and integrated
+        therapeutic equipment management.
       </p>
-    </div>
+
+      <button
+        style={{
+          backgroundColor: "#0F62FE",
+          border: "none",
+          padding: "16px 28px",
+          fontSize: "18px",
+          borderRadius: "8px",
+          cursor: "pointer",
+          color: "#fff",
+          fontWeight: "600",
+        }}
+        onClick={() =>
+          window.location.href = "https://marketplace.novalyte.io"
+        }
+      >
+        Enter Marketplace
+      </button>
+    </main>
   );
 }
