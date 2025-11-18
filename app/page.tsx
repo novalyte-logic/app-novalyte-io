@@ -50,10 +50,9 @@ export default function Home() {
           fontWeight: "600",
         }}
         onClick={() =>
-          window.location.href = "https://marketplace.novalyte.io"
+          window.location.href = "https://app.novalyte.io"
         }
       >
-        Enter Marketplace
       </button>
     </main>
   );
